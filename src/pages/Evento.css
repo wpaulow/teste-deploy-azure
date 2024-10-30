@@ -1,0 +1,26 @@
+.evento {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-image: url("../assets/img/bg-img-evento-resources.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+.event-body {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(100vw - 8rem);
+  margin: 0 auto;
+}
+
+.event-body > .button-go-back {
+  width: min-content;
+}
+
+.event-body > .event-card {
+  width: fit-content;
+}

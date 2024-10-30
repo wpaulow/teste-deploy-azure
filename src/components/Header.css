@@ -1,0 +1,92 @@
+.header-container {
+    display: flex;
+    background-color: #1D7874;
+    flex-direction: column;
+    color: #F0E6D2;
+}
+
+.header-container > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px 0 20px;
+}
+
+.header-container > div img {
+    width: 80px;
+    height:80px;
+}
+.header-container > div img:hover{
+    cursor: pointer;
+}
+
+.header-container > div > h1 {
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 4rem;
+}
+
+.header-container > div > a > span {
+    font-family: "Secular One", sans-serif;
+    font-size: 1.5rem;
+}
+.header-container >  div > a > span:hover {
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+/* Estilizações especiais quando a navegação ESTIVER na tela */
+
+.with-nav > nav {
+    font-family: "Secular One", sans-serif;
+}
+
+.with-nav > nav > ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+}
+
+.with-nav > nav a {
+    text-decoration: none;
+    color: #F0E6D2;
+    font-size: 1.5rem;
+}
+.with-nav > nav a:hover{
+    font-weight: bolder;
+}
+
+.with-nav > img {
+    position: relative;
+    bottom: -16px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Estilizações especiais quando a navegação NÃO ESTIVER na tela */
+
+.no-nav > div > h1 {
+    position: relative;
+    bottom: -25px;
+}
+
+/* Estilizações especiais quando o Profile estiver na tela */
+.header-container .img-profile:hover + .dropdown-profile {
+    display: block;
+}
+
+.header-container .dropdown-profile {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+.header-container .dropdown-profile:hover {
+    display: block;
+}
+
+/* @media (max-width: 800px) {
+    .header-container {
+        flex-direction: column-reverse;
+    }
+} */

@@ -1,0 +1,102 @@
+.dropdown-profile-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #C17732;
+    max-width: 400px;
+    color: #F0E6D2;
+    font-family: "SecularOne", sans-serif;
+    border-bottom-left-radius: 10px;
+    box-shadow: -10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-profile-container > .hsc1 {
+    display: flex;
+    gap: 20px;
+    border-bottom: 4px solid #994C26;
+    padding: 20px;
+}
+.dropdown-profile-container > .hsc1 img {
+    width: 80px;
+    height:80px;
+}
+.dropdown-profile-container > .hsc1 h2 {
+    font-size: 1.875rem;
+    font-weight: 800;
+    max-height: 4.5em;
+    line-height: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-profile-container > .hsc2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    font-family: "Secular One", sans-serif;
+    border-bottom: 4px solid #994C26;
+    padding: 20px;
+    font-weight: 500;
+}
+.dropdown-profile-container > .hsc2 > a {
+    text-decoration: none;
+    color: #F0E6D2;
+}
+.dropdown-profile-container > .hsc2 > a:hover {
+    color: #d3c8b2;
+}
+
+.dropdown-profile-container > .hsc2 > span {
+    color: #994C26;
+    font-weight: 900;
+    align-self: center;
+    position: relative;
+    margin-top: -20px;
+    bottom: -27px;
+}
+
+.dropdown-profile-container > .notificacao {
+    background-color: #F0E6D2;
+    font-family: "Secular One", sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    
+}
+.dropdown-profile-container > .notificacao > span {
+    color: #994C26;
+}
+.dropdown-profile-container > .notificacao > p {
+    color: #352208;
+}
+.dropdown-profile-container > .hsc4 {
+    background-color: #F0E6D2;
+    font-family: "Secular One", sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: #352208;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dropdown-profile-container > .logout {
+    display: flex;
+    padding: 5px 20px;
+    align-items: center;
+    border: none;
+    background-color: #994C26;
+    color: #F0E6D2;
+    font-family: "Secular One", sans-serif;
+    font-size: 1.5rem;
+    gap: 10px;
+    border-bottom-left-radius: 10px;
+}
+.dropdown-profile-container > .logout:hover{
+    background-color: #8a5034;
+    cursor: pointer;
+}
+.dropdown-profile-container > .logout > img{
+    width: 40px;
+    height: 40px;
+}
