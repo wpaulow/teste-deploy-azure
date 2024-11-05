@@ -6,11 +6,9 @@ import { ButtonGoBack } from "../layout/ButtonGoBack"
 import "./LoginBody.css";
 
 export function LoginBody() {
-    console.log("Passei aqui 1");
     const navigate = useNavigate();
     const { login } = useAuth();
 
-    console.log("Passei aqui 2");
     const [email, setEmail] = useState("charlinho@hotmail.com");
     const [password, setPassword] = useState("#MinhaSenhaSuperSecreta");
     const [error, setError] = useState("");
@@ -28,37 +26,38 @@ export function LoginBody() {
         event.preventDefault();
         setError("");
         setLoading(true);
-
-        if (!validateEmail(email)) {
+    
+        const trimmedEmail = email.trim();
+        const trimmedPassword = password.trim();
+    
+        setEmail(trimmedEmail);
+        setPassword(trimmedPassword);
+    
+        if (!validateEmail(trimmedEmail)) {
             setError("Email inválido.");
             setLoading(false);
             return;
         }
-        if (!validatePassword(password)) {
+        if (!validatePassword(trimmedPassword)) {
             setError("A senha deve ter pelo menos 6 caracteres.");
             setLoading(false);
             return;
         }
-
-        const { data, error: fetchError } = await apiRequest("/login", "POST", { email, password });
-
-        if (fetchError)
+    
+        const { data, error: fetchError } = await apiRequest("/login", "POST", { email: trimmedEmail, password: trimmedPassword });
+    
+        if (fetchError) {
             setError("Erro no login: " + fetchError);
-        else {
-            //const { token } = data;
+        } else {
             await login(data);
             navigate("/membro");
             window.location.reload();
         }
-
         setLoading(false);
     };
-
-    console.log("Passei aqui 3");
-
+    
     return (
         <section className="container-login-body">
-            {console.log("Passei aqui 4")}
             <div className="ButtonGoBack">
                 <ButtonGoBack />
             </div>
