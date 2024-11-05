@@ -3,13 +3,13 @@ import { useAuth } from "../context/AuthContext";
 import { useFetch } from "../hooks/useFetch";
 import { apiRequest } from "../utils/api";
 import { Authorities } from "../utils/authorities";
-import { CardEvents } from "../components/CardEvents";
-import { Header } from "../components/header";
-import { Footer } from "../components/Footer";
+import { CardEvents } from "../components/cards/CardEvents";
+import { Header } from "../components/layout/Header";
+import { Footer } from "../components/layout/Footer";
 import "./ManageEvents.css";
 
-import AddIcon from "../assets/img/Plus.svg";
-import SearchIcon from "../assets/img/Glass.svg";
+import AddIcon from "../assets/img/layout/plus.svg";
+import SearchIcon from "../assets/img/layout/search.svg";
 
 export function ManageEvents() {
     const { authorities } = useAuth();
@@ -24,7 +24,7 @@ export function ManageEvents() {
             return;
         }
 
-        const confirmed = window.confirm("Você tem certeza que deseja excluir este evento? " + id);
+        const confirmed = window.confirm("Você tem certeza que deseja excluir este evento? ");
         if (confirmed) {
             const { error: deleteError } = await apiRequest(`/eventos/${id}`, "DELETE");
 
@@ -35,23 +35,25 @@ export function ManageEvents() {
         }
     };
 
-
     return (
         <>
             <Header />
             <section className="container-manage-events-page">
-                <div className="filter">
-                    <div className="detail">
-                        <Link to="/cadastrar-evento">
-                            <button>
-                                <img src={AddIcon} alt="AddIcon" />
-                                <p>CRIAR EVENTO</p>
-                            </button>
-                        </Link>
-
+                { hasAccess && (
+                        <div className="filter">
+                        <div className="detail">
+                            <Link to="/cadastrar-evento">
+                                <button>
+                                    <img src={AddIcon} alt="AddIcon" />
+                                    <p>CRIAR EVENTO</p>
+                                </button>
+                            </Link>
+    
+                        </div>
                     </div>
-                </div>
-
+                    )
+                }
+            
                 <div className="events-space">
                     <div className="events">
                         {!error && !loading && eventos.map((evento) => (

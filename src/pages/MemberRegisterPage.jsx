@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { apiRequest } from "../utils/api";
-import { ButtonGoBack } from "../components/ButtonGoBack";
-import { Footer } from "../components/Footer";
-import { Header } from "../components/header";
-import { MemberDataSignUp } from "../components/MemberDataSignUp";
+import { ButtonGoBack } from "../components/layout/ButtonGoBack";
+import { Footer } from "../components/layout/Footer";
+import { Header } from "../components/layout/Header";
+import { MemberDataSignUp } from "../components/forms/MemberDataSignUp";
 import "./MemberRegisterPage.css";
 
 export function MemberRegisterPage() {
@@ -36,14 +36,14 @@ export function MemberRegisterPage() {
     if (error) return <p>Erro: {error}</p>;
 
     return (
-        <>
+        <> 
             <Header />
             <div className="container-register-page">
                 <div className="return-btn">
                     <ButtonGoBack />
                 </div>
                 {
-                    memberData ? <MemberDataSignUp initialData={memberData} /> : <MemberDataSignUp/>
+                    memberData ? <MemberDataSignUp id={id} initialData={memberData} /> : <MemberDataSignUp/>
                 }
             </div>
             <Footer />
