@@ -29,7 +29,7 @@
   ],
   "globalHeaders": {
     "cache-control": "must-revalidate, max-age=0",
-    "Content-Security-Policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.azure.com; img-src 'self' data: https: blob:;",
+    "Content-Security-Policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.azure.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:;",
     "X-Content-Type-Options": "nosniff",
     "X-Frame-Options": "DENY",
     "X-XSS-Protection": "1; mode=block"
