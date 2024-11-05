@@ -1,13 +1,50 @@
 {
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/images/*.{png,jpg,gif,ico,svg}",
+      "/css/*",
+      "/js/*",
+      "/api/*",
+      "/static/*",
+      "/*.{ico,json,png}"
+    ]
+  },
   "routes": [
     {
-      "route": "/membro",
-      "rewrite": "/index.html"
+      "route": "/membro/*",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "route": "/*",
-      "rewrite": "/index.html"
+      "route": "/login",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/api/*",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"],
+      "allowedRoles": ["authenticated"]
     }
-  ]
+  ],
+  "globalHeaders": {
+    "cache-control": "must-revalidate, max-age=0",
+    "Content-Security-Policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.azure.com; img-src 'self' data: https: blob:;",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "X-XSS-Protection": "1; mode=block"
+  },
+  "mimeTypes": {
+    ".json": "text/json",
+    ".css": "text/css",
+    ".js": "text/javascript",
+    ".svg": "image/svg+xml",
+    ".ico": "image/x-icon"
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html",
+      "statusCode": 200
+    }
+  }
 }
-
