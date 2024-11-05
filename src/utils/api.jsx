@@ -48,15 +48,12 @@ api.interceptors.response.use(
     }
 );
 
-export const apiRequest = async (endpoint, method = "GET", body = null, responseType = "json", customHeaders = {}) => {
+export const apiRequest = async (endpoint, method = "GET", body = null, responseType = "json") => {
     try {
         const config = {
             method,
             url: endpoint,
-            responseType,
-            headers: {
-                ...customHeaders,
-            },
+            responseType
         };
 
         if (method !== "GET" && body)

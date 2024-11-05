@@ -3,13 +3,13 @@ const PaymentCategories = Object.freeze({
     VESTUARIO: 'VESTUARIO',
     TRANSPORTE: 'TRANSPORTE',
     LOCACAO_ESTRUTURAS: 'LOCACAO_ESTRUTURAS',
-    LOCACAO_ESPACO: 'LOCACAO_ESPACOS',
+    LOCACAO_ESPACO: 'LOCACAO_ESPACO',
 });
 
 const getPaymentCategories = () => {
     return Object.values(PaymentCategories).map(payment => ({
         value: payment,
-        label: payment.charAt(0) + payment.slice(1) 
+        label: payment.charAt(0) + payment.slice(1).toLowerCase()  
     }));
 };
 
@@ -23,7 +23,7 @@ const getPayCategories = () => {
         PaymentCategories.VESTUARIO,
         PaymentCategories.TRANSPORTE,
         PaymentCategories.LOCACAO_ESTRUTURAS,
-        PaymentCategories.LOCACAO_ESPACOS
+        PaymentCategories.LOCACAO_ESPACO
     ];
 };
 

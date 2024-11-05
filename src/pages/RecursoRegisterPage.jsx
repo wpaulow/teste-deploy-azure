@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { apiRequest } from "../utils/api";
-import { ButtonGoBack } from "../components/layout/ButtonGoBack";
-import { Footer } from "../components/layout/Footer";
-import { Header } from "../components/layout/Header";
-import { RecursoSignUp } from "../components/forms/RecursoDataSignUp";
-import "./RecursoRegisterPage.css";
+import { ButtonGoBack } from "../components/ButtonGoBack";
+import { Footer } from "../components/Footer";
+import { Header } from "../components/header"; // Corrigi o nome do Header para maiúsculo para consistência
+import { RecursoSignUp } from "../components/RecursoDataSignUp"; // Formulário de recursos
+import "./RecursoRegisterPage.css"; // Estilo da página específica de recursos
 
 export function RecursoRegisterPage() {
     const { id } = useParams();
-    const [recursoData, setRecursoData] = useState(null);
+    const [recursoData, setRecursoData] = useState(null); // Alterado para recursoData
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 

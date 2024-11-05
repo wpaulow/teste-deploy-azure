@@ -1,24 +1,20 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-import { Authorities, getVoluntarios, getAuthorities } from "./utils/authorities";
-
-// Pages
+import { PrivateRoute } from "./components/PrivateRoute";
 import { NotFound } from "./pages/NotFound";
 import { Landing } from "./pages/Landing";
 import { LoginPage } from "./pages/LoginPage";
-import { UserPage } from "./pages/UserPage";
+import { UserPage } from "./components/UserPage";
 import { Mensalidades } from "./pages/Mensalidades";
-import { Evento } from "./pages/Evento";
-import { ManageEvents } from "./pages/ManageEvents";
-import { MemberRegisterPage } from "./pages/MemberRegisterPage";
+import { MemberRegisterPage } from "./pages/MemberRegisterPage"; 
 import { EventoRegisterPage } from "./pages/EventoRegisterPage";
-import { RecursoRegisterPage } from "./pages/RecursoRegisterPage";
-import { MemberView } from "./pages/MemberView";
-
-// Components
-import { PrivateRoute } from "./components/routing/PrivateRoute";
-
+import { RecursoRegisterPage } from "./pages/RecursoRegisterPage.jsx";
+import { Evento } from "./pages/Evento";
+import { Authorities, getVoluntarios } from "./utils/authorities";
 import "./App.css";
+import { ManageEvents } from "./pages/ManageEvents";
+import { ViewMemberData } from "./components/ViewMemberData.jsx";
+import { MemberView } from "./pages/MemberView.jsx";
 
 function App() {
     return (
@@ -33,7 +29,7 @@ function App() {
 
                     {/* Rotas protegidas */}
                     <Route 
-                        path='/membros'
+                        path='/gerenciar-membros'
                         element={
                             <PrivateRoute allowedAuthorities={getVoluntarios()}>
                                 <UserPage />
@@ -41,7 +37,7 @@ function App() {
                         }
                     />
                     <Route 
-                        path='/mensalidades' 
+                        path='/gerenciar-mensalidades' 
                         element={
                             <PrivateRoute allowedAuthorities={getVoluntarios()}>
                                 <Mensalidades />
@@ -49,15 +45,15 @@ function App() {
                         } 
                     />
                     <Route 
-                        path='/eventos'
+                        path='/gerenciar-eventos'
                         element={
-                            <PrivateRoute allowedAuthorities={getAuthorities()}>
+                            <PrivateRoute allowedAuthorities={getVoluntarios()}>
                                 <ManageEvents />
                             </PrivateRoute>
                         }
                     />
                     <Route
-                        path='/cadastrar-recurso/:eventoId?'
+                        path='/cadastrar-recurso/:id?'
                         element={
                             <PrivateRoute allowedAuthorities={getVoluntarios()}>
                                 <RecursoRegisterPage />
@@ -87,7 +83,7 @@ function App() {
                     <Route
                         path='/detalhes-evento/:id?'
                         element={
-                            <PrivateRoute allowedAuthorities={getAuthorities()}>
+                            <PrivateRoute allowedAuthorities={getVoluntarios()}>
                                 <Evento />
                             </PrivateRoute>
                         }
@@ -95,7 +91,7 @@ function App() {
                     <Route
                         path='/membro/:id?'
                         element={
-                            <PrivateRoute allowedAuthorities={getAuthorities()}>
+                            <PrivateRoute allowedAuthorities={getVoluntarios()}>
                                 <MemberView />
                             </PrivateRoute>
                         }

@@ -138,20 +138,26 @@ export const validateMembro = {
 
 export const validadeEvento = {
     nome: (value) => {
-        if (!value || value.length < 3 || value.length > 50)
-            return "Nome deve ter entre 3 e 50 caracteres.";
+        if (!value || value.length > 50)
+            return "Nome deve ter no máximo 50 caracteres.";
         return "";
     },
 
     atracao: (value) => {
-        if (!value || value.length < 3 || value.length > 50)
-            return "Atração deve ter entre 3 e 50 caracteres.";
+        if (!value || value.length > 50)
+            return "Atração deve ter no máximo 50 caracteres.";
         return "";
     },
 
     descricao: (value) => {
-        if (!value || value.length < 3 || value.length > 500)
-            return "Descrição deve ter entre 3 e 50 caracteres.";
+        if (!value || value.length > 500)
+            return "Descrição deve ter no máximo 500 caracteres.";
+        return "";
+    },
+
+    imagem: (value) => {
+        if (value && value.length > 255)
+            return "Caminho da imagem deve ter no máximo 255 caracteres.";
         return "";
     },
 
@@ -213,45 +219,5 @@ export const validadeEvento = {
 }
 
 export const validateRecurso = {
-    nome: (value) => {
-        if (!value || value.length < 1 || value.length > 100)
-            return "Nome deve ter entre 1 e 100 caracteres.";
-        return "";
-    },
 
-    descricao: (value) => {
-        if (!value || value.length < 1 || value.length > 255)
-            return "Descrição deve ter entre 1 e 255 caracteres.";
-        return "";
-    },
-
-    valor: (value) => {
-        if (value === null || value <= 0)
-            return "Valor deve ser maior que 0.";
-        return "";
-    },
-
-    quantidade: (value) => {
-        if (value === null || value <= 0)
-            return "Quantidade deve ser maior que 0.";
-        return "";
-    },
-
-    formaPagamento: (value) => {
-        if (!value)
-            return "Forma de pagamento é obrigatória.";
-        return "";
-    },
-
-    categoria: (value) => {
-        if (!value)
-            return "Categoria é obrigatória.";
-        return "";
-    },
-
-    statusPagamento: (value) => {
-        if (!value)
-            return "Status de pagamento é obrigatório.";
-        return "";
-    },
-};
+}
