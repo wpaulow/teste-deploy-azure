@@ -25,7 +25,6 @@
       "route": "/membro/*",
       "serve": "/index.html",
       "statusCode": 200,
-      "allowedRoles": ["authenticated"]
     },
     {
       "route": "/api/*",
