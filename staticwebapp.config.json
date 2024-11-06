@@ -22,7 +22,7 @@
       "statusCode": 200
     },
     {
-      "route": "/api/*",
+      "route": "/*",
       "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"],
       "allowedRoles": ["authenticated"]
     }
