@@ -26,6 +26,11 @@
       "serve": "/index.html",
       "statusCode": 200,
       "allowedRoles": ["authenticated"]
+    },
+    {
+      "route": "/api/*",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"],
+      "allowedRoles": ["authenticated"]
     }
   ],
   "globalHeaders": {
